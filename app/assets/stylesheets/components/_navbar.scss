@@ -19,10 +19,12 @@ nav {
   .right-nav{
     @include center-flex-row;
     gap: 1rem;  
-    width: 30%;
+    width: 20rem;
     
-    p {
+    a {
       font-size: 1.5rem;
+      text-decoration: none;
+      color: black;
     }
     
     ul {
@@ -31,8 +33,7 @@ nav {
       border-radius: 1rem;
       justify-content: space-evenly;
       list-style: none;
-      width: 25%;
+      width: 6.5rem;
     }
-
   }
 }

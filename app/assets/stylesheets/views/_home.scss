@@ -6,3 +6,49 @@
   width: 100%;
   height: 35vh;
 }
+
+main {
+  @include center-flex-column;
+
+  section {
+    position: relative;
+    top: -10rem;
+  }
+}
+
+.search-home {
+  @include center-flex-row;
+  justify-content: space-between;
+  background-color: $light-grey-opacity;
+  min-width: 50rem;
+  max-width: 100rem;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  .search-section {
+    width: 30%;
+    border-right: 1px solid black;
+    margin-left: 1rem;
+
+    p {
+      text-align: center;
+      font-weight: 600;
+    }
+
+    span {
+      color: $text-grey;
+    }
+  }
+
+  .search {
+    @include center-grid;
+    width: 10%;
+    div {
+      background-color: $light-grey;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      @include center-grid;
+    }
+  }
+}
