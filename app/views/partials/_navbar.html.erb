@@ -8,9 +8,9 @@
 
     <div class="right-nav">
       <%= link_to 'Hazte anfitrión', '/' %>
-      <ul class="menus">
-        <li class="options-icon"><i class="fa-solid fa-bars"></i></li>
-        <li><i class="fa-regular fa-user"><%= render 'partials/sessions_options' %></i></li>
+      <ul class="menus" id="menus">
+        <li onclick="showGeneralMenu()" class="filter-options" id="filter-options"><i class="fa-solid fa-bars"><%= render 'partials/general_options' %></i></li>
+        <li onclick="showUserMenu()" class="user-options" id="user-options"><i class="fa-regular fa-user"><%= render 'partials/sessions_options' %></i></li>
       </ul>
     </div>
   </div>

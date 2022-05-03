@@ -38,15 +38,18 @@ nav {
         list-style: none;
         width: 100%;
 
-        li:nth-child(2) {
+        li {
           @include center-grid;
+          height: 30px;
+          width: 30px;
+        }
+
+        li:nth-child(2) {
           background-color: $secundary-color;
           border-radius: 50%;
           box-shadow: $low-shadow;
           color: $black;
-          height: 30px;
-          width: 30px;
-        }        
+        }
       }
     }
   }

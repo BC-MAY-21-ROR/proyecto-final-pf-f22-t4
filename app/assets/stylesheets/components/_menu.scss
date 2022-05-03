@@ -27,6 +27,10 @@
   padding: 3rem 0;
 }
 
+.show { 
+  display: flex !important;
+}
+
 .general-menu {
   h1 {
     border-bottom: $simple-boder-black;
@@ -42,14 +46,19 @@
 }
 
 @media only screen and (min-width: $breakpoint-mobile) {
-  .menus {
+  #menus {
     position: relative;
+    border-radius: 50%;
+    width: 30px;
   }
 
-  .menus:hover {
-    .menu {
-      display: flex;
-    }
+  #menus:hover {
+    box-shadow: $medium-shadow;
+    cursor: pointer;
+  }
+
+  #user-options {
+    width: 100%;
   }
 
   .menu {
@@ -74,7 +83,7 @@
     padding: 1rem 0;
   }
   
-  .general-menu {
+  #filter-options {
     display: none;
   }
 }
