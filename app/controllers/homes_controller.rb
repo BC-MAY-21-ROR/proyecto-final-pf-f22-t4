@@ -18,7 +18,10 @@ class HomesController < ApplicationController
   end
 
   # GET /homes/1/edit
-  def edit; end
+  def edit
+    puts "\n\n\n\n\n\n bbbbbbbbbbbb \n\n #{params}\n\n\n\n\n\n\n"
+    delete_attachment(params[:photo_id]) if params.key?(:photo_id)
+  end
 
   # POST /homes or /homes.json
   def create
@@ -52,6 +55,12 @@ class HomesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to homes_url, notice: 'Home was successfully destroyed.' }
     end
+  end
+
+  def delete_attachment(photo_id)
+    attachment = ActiveStorage::Attachment.find(photo_id)
+    attachment.purge # or use purge_later
+    redirect_to edit_home_url(@home)
   end
 
   private

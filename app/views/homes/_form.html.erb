@@ -10,11 +10,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :photos, style: "display: block" %>
-    <%= form.file_field :photos, multiple: true %>
-  </div>
+  <% if action_name == 'edit' %>
+    <div class="field photos_field">
+      <% home.photos.each do |photo| %>
+        <%= link_to edit_home_path(home, photo_id: photo), class: 'photo' do %>
+          <%= image_tag(photo) %>
+          <div class="trash-icon">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= puts "\n\n\n\n\n\n #{action_name} \n\n\n\n\n\n\n\n\n"%>
+      <%= form.label :photos, style: "display: block" %>
+      <%= form.file_field :photos, multiple: true %>
+    </div>
+  <% end %>
+  
 
   <div class="field">
     <%= form.label :title, style: "display: block" %>

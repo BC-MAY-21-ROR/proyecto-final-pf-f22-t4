@@ -156,3 +156,41 @@
   @include center-grid;
   margin-top: 1rem;
 }
+
+.photos_field {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  a {
+    flex-grow: 1;
+    width: 33%;
+    display: inline-block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .photo {
+    position: relative;
+
+    .trash-icon {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $shadow-grey;
+      top: 0;
+      color: $black;
+    }
+  }
+
+  .photo:hover {
+    .trash-icon {
+      @include center-grid;
+    }
+  }
+}
