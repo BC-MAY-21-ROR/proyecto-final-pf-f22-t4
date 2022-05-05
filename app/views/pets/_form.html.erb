@@ -17,12 +17,19 @@
     </div>
     <div class="field">
       <%= form.label :photo, style: "display: block" %>
-      <%= form.file_field :photo %>
+      <%= form.file_field :photo, onchange: "loadFile(event)"%>
+      <p><img id="output" width="200" /></p>
     </div>
   <% else %>
-    <div class="field">
-      <%= form.label :photo, style: "display: block" %>
-      <%= form.file_field :photo %>
+    <div class="field file-field">
+      <%= form.label :photo do %>
+        <span><strong>Subir foto:</strong></span>
+        <div class="upload">
+          <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <span id="add">+</span>
+          <img id="output"/>
+        </div>
+      <% end %>
     </div>
   <% end %>
 
