@@ -29,7 +29,7 @@
   
   <% if !user.pets.size.zero? %>
     <p><strong>Mascotas registradas:</strong></p>
-    <div class="field photos_field">
+    <div class="field photos-field">
       <% user.pets.each do |pet| %>
           <% if action_name == 'profile' %>
             <%= link_to pet_path(pet), class: 'photo pet' do %>
@@ -54,7 +54,7 @@
   
   <% if !user.homes.size.zero? %>
     <p><strong>Casa publicadas:</strong></p>
-    <div class="field photos_field">
+    <div class="field photos-field">
       <% user.homes.each do |home| %>
           <%= link_to home_path(home), class: 'photo' do %>
             <%= image_tag(home.photos[0]) %>

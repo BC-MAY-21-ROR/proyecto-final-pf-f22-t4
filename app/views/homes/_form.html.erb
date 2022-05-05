@@ -10,8 +10,10 @@
       </ul>
     </div>
   <% end %>
+
   <% if action_name == 'edit' %>
-    <div class="field photos_field">
+    <span><strong>Borrar fotos:</strong></span>
+    <div class="field photos-field">
       <% home.photos.each do |photo| %>
         <%= link_to edit_home_path(home, photo_id: photo), class: 'photo' do %>
           <%= image_tag(photo) %>
@@ -21,18 +23,18 @@
         <% end %>
       <% end %>
     </div>
-     <div class="field">
-      <%= form.label :photos, style: "display: block" %>
-      <%= form.file_field :photos, multiple: true %>
-    </div>
-  <% else %>
-    <div class="field">
-      <%= form.label :photos, style: "display: block" %>
-      <%= form.file_field :photos, multiple: true %>
-    </div>
   <% end %>
   
-
+  <div class="field file-field">
+    <%= form.label :photos do %>
+      <span><strong>Subir fotos:</strong></span>
+      <%= form.file_field :photos, multiple: true, onchange: 'loadFiles(event)', class: 'input-file'%>
+      <div class="upload photos-field" id="upload">
+        <span id="add">+</span>
+      </div>
+    <% end %>
+  </div>
+  
   <div class="field">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>

@@ -12,13 +12,19 @@
   <% end %>
 
   <% if action_name == 'edit' %>
-    <div class="field">
-      <%= image_tag(pet.photo) if pet.photo.attached? %> 
-    </div>
-    <div class="field">
-      <%= form.label :photo, style: "display: block" %>
-      <%= form.file_field :photo, onchange: "loadFile(event)"%>
-      <p><img id="output" width="200" /></p>
+    <div class="field file-field">
+      <%= form.label :photo do %>
+        <span><strong>Actualizar foto:</strong></span>
+        <div class="upload upload-edit">
+          <%= form.file_field :photo, onchange: 'loadFile(event)', class: 'input-file'%>
+          <% if pet.photo.attached? %>
+            <%= image_tag(pet.photo, id: 'output')  %>
+          <% else %>
+            <span id="add">+</span>
+            <img id="output"/>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% else %>
     <div class="field file-field">
