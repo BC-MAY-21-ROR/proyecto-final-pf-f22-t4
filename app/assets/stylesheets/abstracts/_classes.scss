@@ -220,4 +220,14 @@
   .photo {
     width: 20%;
   }
+
+  .new-link {
+    @include center-flex-column;
+    background-color: $light-grey-opacity;
+    text-decoration: none;
+  }
+
+  .pet {
+    max-width: 20%;
+  }
 }
