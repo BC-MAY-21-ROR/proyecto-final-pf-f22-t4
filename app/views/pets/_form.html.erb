@@ -12,19 +12,17 @@
   <% end %>
 
   <% if action_name == 'edit' %>
-    <div class="field photos_field">
-      <%= link_to edit_home_path(home, photo_id: pet.photo), class: 'photo' do %>
-        <%= image_tag(pet.photo) %>
-        <div class="trash-icon">
-          <i class="fa-solid fa-trash-can"></i>
-        </div>
-      <% end %>
+    <div class="field">
+      <%= image_tag(pet.photo) if pet.photo.attached? %> 
+    </div>
+    <div class="field">
+      <%= form.label :photo, style: "display: block" %>
+      <%= form.file_field :photo %>
     </div>
   <% else %>
     <div class="field">
-      <%= puts "\n\n\n\n\n\n #{action_name} \n\n\n\n\n\n\n\n\n"%>
-      <%= form.label :photos, style: "display: block" %>
-      <%= form.file_field :photos, multiple: true %>
+      <%= form.label :photo, style: "display: block" %>
+      <%= form.file_field :photo %>
     </div>
   <% end %>
 

@@ -21,9 +21,12 @@
         <% end %>
       <% end %>
     </div>
+     <div class="field">
+      <%= form.label :photos, style: "display: block" %>
+      <%= form.file_field :photos, multiple: true %>
+    </div>
   <% else %>
     <div class="field">
-      <%= puts "\n\n\n\n\n\n #{action_name} \n\n\n\n\n\n\n\n\n"%>
       <%= form.label :photos, style: "display: block" %>
       <%= form.file_field :photos, multiple: true %>
     </div>

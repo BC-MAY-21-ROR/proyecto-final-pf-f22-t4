@@ -13,6 +13,8 @@ module ProyectoFinalPfF22T4
 
     config.i18n.available_locales = [:en, :es]
 
+    config.active_storage.replace_on_assign_to_many = false
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
