@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HomesController < ApplicationController
-  before_action :authenticate_user!, except: %i[index]
+  before_action :authenticate_user!, except: %i[index show]
   load_and_authorize_resource
 
   # GET /homes or /homes.json
@@ -19,7 +19,6 @@ class HomesController < ApplicationController
 
   # GET /homes/1/edit
   def edit
-    puts "\n\n\n\n\n\n bbbbbbbbbbbb \n\n #{params}\n\n\n\n\n\n\n"
     delete_attachment(params[:photo_id]) if params.key?(:photo_id)
   end
 
@@ -59,7 +58,7 @@ class HomesController < ApplicationController
 
   def delete_attachment(photo_id)
     attachment = ActiveStorage::Attachment.find(photo_id)
-    attachment.purge # or use purge_later
+    attachment.purge
     redirect_to edit_home_url(@home)
   end
 

@@ -160,38 +160,64 @@
 
 .photos_field {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 
   a {
+    display: inline-block;
     flex-grow: 1;
     width: 33%;
-    display: inline-block;
 
     img {
-      width: 100%;
       height: 100%;
       object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.photo {
+  position: relative;
+
+  .trash-icon {
+    background-color: $shadow-grey;
+    color: $black;
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.photo:hover {
+  .trash-icon {
+    @include center-grid;
+  }
+}
+
+.show {
+  width: 50%;
+  margin: 20px 0;
+}
+
+.profile {
+  width: 100%;
+
+  figure {
+    @include center-grid;
+
+    img {
+      border-radius: 50%;
+      border: 2px solid $black;
+      height: 250px;
+      object-fit: cover;
+      width: 250px;
     }
   }
 
   .photo {
-    position: relative;
-
-    .trash-icon {
-      display: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: $shadow-grey;
-      top: 0;
-      color: $black;
-    }
-  }
-
-  .photo:hover {
-    .trash-icon {
-      @include center-grid;
-    }
+    width: 20%;
   }
 }

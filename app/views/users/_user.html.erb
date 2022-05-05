@@ -1,0 +1,43 @@
+<div class="profile" id="<%= dom_id user %>">
+  
+  <figure>
+    <%= image_tag user.profile_photo.variant(resize_to_limit: [300, 300]) %>
+  </figure>
+
+  <p>
+    <strong>Nombre:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong>Telefono:</strong>
+    <%= user.phone %>
+  </p>
+
+  <% if action_name == 'profile' %>
+    <p>
+      <strong>Fecha de nacimiento:</strong>
+      <%= user.birthdate %>
+    </p>
+
+    <p>
+      <strong>Dirección:</strong>
+      <%= user.address %>
+    </p>
+  <% end %>
+
+  <p><strong>Casa publicadas:</strong></p>
+  <% if user.homes %>
+    <div class="field photos_field">
+      <% user.homes.each do |home| %>
+          <%= link_to home_path(home), class: 'photo' do %>
+            <%= image_tag(home.photos[0]) %>
+            <div class="trash-icon"></div>
+          <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if action_name == 'profile' %>
+    <%= link_to "Actualizar informacion", edit_user_registration_path %>
+  <% end %>
+</div>
