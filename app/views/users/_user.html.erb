@@ -1,6 +1,6 @@
 <div class="profile" id="<%= dom_id user %>">
   
-  <figure>
+  <figure class="profile-photo">
     <%= image_tag user.profile_photo.variant(resize_to_limit: [300, 300]) %>
   </figure>
 
@@ -26,25 +26,35 @@
     </p>
   <% end %>
 
-  <p><strong>Mascotas registradas:</strong></p>
-  <% if user.pets %>
+  
+  <% if !user.pets.size.zero? %>
+    <p><strong>Mascotas registradas:</strong></p>
     <div class="field photos_field">
       <% user.pets.each do |pet| %>
-          <%= link_to pet_path(pet), class: 'photo pet' do %>
-            <%= image_tag(pet.photo) %>
-            <div class="trash-icon"></div>
+          <% if action_name == 'profile' %>
+            <%= link_to pet_path(pet), class: 'photo pet' do %>
+              <%= image_tag(pet.photo) %>
+              <div class="trash-icon"></div>
+            <% end %>
+          <% else %>
+            <figure class="photo pet">
+              <%= image_tag(pet.photo) %>
+            </figure>
           <% end %>
       <% end %>
-      <%= link_to new_pet_path, class: 'photo pet new-link' do %>
-        <span>+</span>
-        <div class="trash-icon"></div>
+      <% if action_name == 'profile' %>
+        <%= link_to new_pet_path, class: 'photo pet new-link' do %>
+          <span>+</span>
+          <div class="trash-icon"></div>
+        <% end %>
       <% end %>
+        
     </div>
-      
   <% end %>
 
-  <p><strong>Casa publicadas:</strong></p>
-  <% if user.homes %>
+  
+  <% if !user.homes.size.zero? %>
+    <p><strong>Casa publicadas:</strong></p>
     <div class="field photos_field">
       <% user.homes.each do |home| %>
           <%= link_to home_path(home), class: 'photo' do %>
@@ -52,9 +62,11 @@
             <div class="trash-icon"></div>
           <% end %>
       <% end %>
-      <%= link_to new_pet_path, class: 'photo new-link' do %>
-        <span>+</span>
-        <div class="trash-icon"></div>
+      <% if action_name == 'profile' %>
+        <%= link_to new_pet_path, class: 'photo new-link' do %>
+          <span>+</span>
+          <div class="trash-icon"></div>
+        <% end %>
       <% end %>
     </div>
   <% end %>

@@ -164,7 +164,7 @@
   flex-wrap: wrap;
   gap: 10px;
 
-  a {
+  .photo {
     display: inline-block;
     flex-grow: 1;
     width: 33%;
@@ -205,7 +205,7 @@
 .profile {
   width: 100%;
 
-  figure {
+  .profile-photo {
     @include center-grid;
 
     img {
